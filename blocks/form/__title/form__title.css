@@ -7,8 +7,6 @@
     color: rgba(0, 0, 0, 1);
     max-width: 330px;
     margin: 34px 64px 54px 36px;
-    max-height: 23px;
-    white-space: nowrap;
 }
 
 @media screen and (max-width: 600px) {
