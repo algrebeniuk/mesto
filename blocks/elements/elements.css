@@ -20,5 +20,6 @@
     .elements {
         grid-template-columns: 1fr;
         max-width: 282px;
+        margin-bottom: 48px;
     }
 }
