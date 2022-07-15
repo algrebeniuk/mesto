@@ -101,7 +101,9 @@ const createCard = (cardItem) =>{
         name: placeInput.value,
         link: linkInput.value
     };
-    createCard(addNewCard);
+    const createNewCard = createCard(addNewCard);
+    renderInitialCards(createNewCard);
+    /*createCard(addNewCard);*/
     closePopup(popupAddCard);
     formAddCard.reset();
   });
