@@ -86,14 +86,12 @@ const renderCard = (cardItem) => {
 
 const createCard = (cardItem) =>{
     const newCard = elementTemplate.cloneNode(true);
-
     newCard.querySelector('.element__title').textContent = cardItem.name;
     newCard.querySelector('.element__photo').src = cardItem.link;
     newCard.querySelector('.element__photo').alt = cardItem.name;
     dataTransmissionCard(newCard);
     deleteCard(newCard);
     like(newCard);
-    elementsList.prepend(newCard);
     return newCard;
   };
 
