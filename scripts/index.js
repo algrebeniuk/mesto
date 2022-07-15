@@ -1,29 +1,32 @@
 //объявления переменных
-let popup = document.querySelector('.popup');
-let popupEditProfile = document.querySelector('.popup_type_edit-profile');
-let popupAddCard = document.querySelector('.popup_type_add-card');
-let popupOpenPhoto = document.querySelector('.popup_type_photo');
+const popup = document.querySelector('.popup');
+const popupEditProfile = document.querySelector('.popup_type_edit-profile');
+const popupAddCard = document.querySelector('.popup_type_add-card');
+const popupOpenPhoto = document.querySelector('.popup_type_photo');
 
-let closeButtonEditProfile = document.querySelector('.form__close_type_edit-profile');
-let closeButtonAddCard = document.querySelector('.form__close_type_add-card');
-let closeButtonPhoto = document.querySelector('.form__close_type_photo');
-let formEditProfile = document.querySelector('.form_type_edit-profile');
-let formAddCard = document.querySelector('.form_type_add-card');
-let nameInput = document.querySelector('.form__input_field_name');
-let jobInput = document.querySelector('.form__input_field_activity'); 
+const closeButton = document.querySelectorAll('.form__close');
+const closeButtonEditProfile = document.querySelector('.form__close_type_edit-profile');
+const closeButtonAddCard = document.querySelector('.form__close_type_add-card');
+const closeButtonPhoto = document.querySelector('.form__close_type_photo');
+const formEditProfile = document.querySelector('.form_type_edit-profile');
+const formAddCard = document.querySelector('.form_type_add-card');
+const nameInput = document.querySelector('.form__input_field_name');
+const jobInput = document.querySelector('.form__input_field_activity'); 
+const placeInput = popupAddCard.querySelector('.form__input_field_place');
+const linkInput = popupAddCard.querySelector('.form__input_field_link');
 
-let editButton = document.querySelector('.profile__edit-button');
-let likeButton = document.querySelector('.element__like');
-let addButton = document.querySelector('.profile__add-button');
+const editButton = document.querySelector('.profile__edit-button');
+const likeButton = document.querySelector('.element__like');
+const addButton = document.querySelector('.profile__add-button');
 
-let profileName = document.querySelector('.profile__name');
-let profileActivity = document.querySelector('.profile__activity');
+const profileName = document.querySelector('.profile__name');
+const profileActivity = document.querySelector('.profile__activity');
 
-let elementTemplate = document.querySelector('#template-element').content;
-let elementsList = document.querySelector('.elements');
+const elementTemplate = document.querySelector('#template-element').content;
+const elementsList = document.querySelector('.elements');
 
-let popupPhoto = document.querySelector('.popup__photo');
-let popupTitle = document.querySelector('.popup__title')
+const popupPhoto = document.querySelector('.popup__photo');
+const popupTitle = document.querySelector('.popup__title')
 
 const initialCards = [
     {
@@ -69,9 +72,17 @@ function editFormSubmitHandler(evt) {
     closePopup(popupEditProfile);
 }
 
-const renderCard = () => {
-    initialCards.forEach(createCard);
+const renderInitialCards = (cardItem) => {
+    elementsList.prepend(cardItem);
 }
+
+const renderCard = (cardItem) => {
+    initialCards.forEach(function (cardItem) {
+        const createAllCards = createCard(cardItem);
+        renderInitialCards(createAllCards);
+    });
+}
+
 
 const createCard = (cardItem) =>{
     const newCard = elementTemplate.cloneNode(true);
@@ -83,18 +94,18 @@ const createCard = (cardItem) =>{
     deleteCard(newCard);
     like(newCard);
     elementsList.prepend(newCard);
+    return newCard;
   };
-  
+
   formAddCard.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    const placeInput = popupAddCard.querySelector('.form__input_field_place');
-    const linkInput = popupAddCard.querySelector('.form__input_field_link');
     const addNewCard = {
         name: placeInput.value,
         link: linkInput.value
     };
     createCard(addNewCard);
     closePopup(popupAddCard);
+    formAddCard.reset();
   });
 
   function like (newCard) {
@@ -128,23 +139,29 @@ editButton.addEventListener('click', () => {
 
 addButton.addEventListener('click', () => {
     openPopup(popupAddCard);
-})
-
-closeButtonEditProfile.addEventListener('click', () => {
-    closePopup(popupEditProfile);
-})    
-
-closeButtonAddCard.addEventListener('click', () => {
-    closePopup(popupAddCard);
-})    
+})   
 
 formEditProfile.addEventListener('submit', editFormSubmitHandler);
 
 renderCard();
 
-closeButtonPhoto.addEventListener('click', () => {
+
+/*closeButtonPhoto.addEventListener('click', () => {
     closePopup(popupOpenPhoto);
 })
+
+closeButtonEditProfile.addEventListener('click', () => {
+    closePopup(popupEditProfile);
+})   
+
+closeButtonAddCard.addEventListener('click', () => {
+    closePopup(popupAddCard);
+}) */
+
+closeButton.forEach((button) => {
+    const popup = button.closest('.popup');
+    button.addEventListener('click', () => closePopup(popup));
+});
 
 
 
