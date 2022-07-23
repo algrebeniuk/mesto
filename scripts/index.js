@@ -16,6 +16,7 @@ const nameInput = document.querySelector('.form__input_field_name');
 const jobInput = document.querySelector('.form__input_field_activity'); 
 const placeInput = popupAddCard.querySelector('.form__input_field_place');
 const linkInput = popupAddCard.querySelector('.form__input_field_link');
+const submitButtonCard = popupAddCard.querySelector('.form__save');
 
 const editButton = document.querySelector('.profile__edit-button');
 const likeButton = document.querySelector('.element__like');
@@ -116,7 +117,7 @@ const createCard = (cardItem) =>{
     renderInitialCards(createNewCard);
     /*createCard(addNewCard);*/
     closePopup(popupAddCard);
-    formAddCard.reset();
+    formAddCard.reset(); 
   });
 
   function like (newCard) {
@@ -151,6 +152,10 @@ editButton.addEventListener('click', () => {
 
 addButton.addEventListener('click', () => {
     openPopup(popupAddCard);
+    if((placeInput.validity.valueMissing) || (linkInput.validity.valueMissing)) {
+      submitButtonCard.setAttribute('disabled', '');
+      submitButtonCard.classList.add('form__save_disabled');
+    }
 })   
 
 formEditProfile.addEventListener('submit', editFormSubmitHandler);
