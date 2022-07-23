@@ -2,24 +2,40 @@
         const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.add(settings.inputErrorClass);
         errorElement.textContent = errorMessage;
-        errorElement.classList.add(settings.errorClass);
+        /*errorElement.classList.add(settings.errorClass);*/
     };
 
     const hideInputError = (formElement, inputElement, settings) => {
         const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(settings.inputErrorClass);
-        errorElement.classList.remove(settings.errorClass);
+        /*errorElement.classList.remove(settings.errorClass);*/
         errorElement.textContent = '';
     };
 
     const checkInputValidity = (formElement, inputElement, settings) => {
         if (!inputElement.validity.valid) {
-        showInputError(formElement, inputElement, inputElement.validationMessage, settings);
+            showInputError(formElement, inputElement, inputElement.validationMessage, settings);
         } else {
-        hideInputError(formElement, inputElement, settings);
+            hideInputError(formElement, inputElement, settings);
         }
     };
 
+    const hasInvalidInput = (inputList) => {
+        return inputList.some((inputElement) => {
+            return !inputElement.validity.valid;
+        })
+    };
+
+     
+    const toggleButtonState = (inputList, buttonElement, settings) => {
+        if (hasInvalidInput(inputList)) {
+            buttonElement.setAttribute('disabled', '');
+            buttonElement.classList.add(settings.inactiveButtonClass);
+        } else {
+            buttonElement.removeAttribute('disabled');
+            buttonElement.classList.remove(settings.inactiveButtonClass);
+        } 
+    }
    
 
   const setEventListeners = (formElement, settings) => {
@@ -43,22 +59,6 @@
       setEventListeners(formElement, settings);
     }); 
   };
-
-  function hasInvalidInput (inputList) {
-    return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  })
-  };
-
-  function toggleButtonState (inputList, buttonElement, settings) {
-    if (hasInvalidInput(inputList)) {
-        buttonElement.setAttribute('disabled', true);
-        buttonElement.classList.add(settings.inactiveButtonClass);
-    } else {
-        buttonElement.removeAttribute('disabled');
-        buttonElement.classList.remove(settings.inactiveButtonClass);
-    } 
-  }
   
   enableValidation ({
     formSelector: '.form',
@@ -66,6 +66,6 @@
     submitButtonSelector: '.form__save',
     inactiveButtonClass: 'form__save_disabled',
     inputErrorClass: 'form__input_type_error',
-    errorClass: 'form__input-error'
-  }); 
+   /* errorClass: 'form__input-error'*/
+  });
 

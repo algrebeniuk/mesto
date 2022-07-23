@@ -1,13 +1,15 @@
 //объявления переменных
-const popup = document.querySelector('.popup');
+const popups =document.querySelectorAll('.popup')
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
 const popupAddCard = document.querySelector('.popup_type_add-card');
 const popupOpenPhoto = document.querySelector('.popup_type_photo');
+const closeOverlay = document.querySelector('.popup__bg');
 
-const closeButton = document.querySelectorAll('.form__close');
-const closeButtonEditProfile = document.querySelector('.form__close_type_edit-profile');
-const closeButtonAddCard = document.querySelector('.form__close_type_add-card');
-const closeButtonPhoto = document.querySelector('.form__close_type_photo');
+const closeButton = document.querySelectorAll('.popup__close');
+const closeButtonEditProfile = document.querySelector('.popup__close_type_edit-profile');
+const closeButtonAddCard = document.querySelector('.popup__close_type_add-card');
+const closeButtonPhoto = document.querySelector('.popup__close_type_photo');
+
 const formEditProfile = document.querySelector('.form_type_edit-profile');
 const formAddCard = document.querySelector('.form_type_add-card');
 const nameInput = document.querySelector('.form__input_field_name');
@@ -59,10 +61,19 @@ const initialCards = [
 
 function openPopup(popupItem) {
     popupItem.classList.add('popup_opened');
+    document.addEventListener('keydown', closePopupEsc);
 }
 
 function closePopup(popupItem) {
     popupItem.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closePopupEsc);
+}
+
+const closePopupEsc = (evt) => {
+  if(evt.key === 'Escape') {
+    const closeButtonEsc = document.querySelector('.popup_opened')
+    closePopup(closeButtonEsc);
+  }
 }
 
 function editFormSubmitHandler(evt) {
@@ -129,6 +140,7 @@ const createCard = (cardItem) =>{
     });
   }  
   
+
 //события
 
 editButton.addEventListener('click', () => {
@@ -159,11 +171,18 @@ closeButtonAddCard.addEventListener('click', () => {
 }) */
 
 closeButton.forEach((button) => {
-    const popup = button.closest('.popup');
-    button.addEventListener('click', () => closePopup(popup));
+  const popup = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popup));
 });
 
-
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+  if(evt.target === evt.currentTarget) {
+    closePopup(popup)
+  }
+})
+})
+  
 
 
 

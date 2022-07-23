@@ -32,17 +32,20 @@
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 
 @import url(../blocks/popup/popup.css);
+
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__conteiner/popup__conteiner.css);
+@import url(../blocks/popup/__conteiner/_type/popup__conteiner_type_photo.css);
 @import url(../blocks/form/form.css);
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__input-error/form__input-error.css);
 @import url(../blocks/form/__input/_type/form__input_type_error.css);
-@import url(../blocks/form/__close/form__close.css);
+@import url(../blocks/popup/__close/popup__close.css);
+@import url(../blocks/popup/__close-cross/popup__close-cross.css);
 @import url(../blocks/form/__save/form__save.css);
 @import url(../blocks/form/__save/_disabled/form__save_disabled.css);
 @import url(../blocks/form/__title/form__title.css);
-@import url(../blocks/form/__close-cross/form__close-cross.css);
+
 @import url(../blocks/popup/__photo/popup__photo.css);
 @import url(../blocks/form/_type/form_type_photo.css);
 @import url(../blocks/popup/__title/popup__title.css);
