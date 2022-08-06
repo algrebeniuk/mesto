@@ -184,7 +184,7 @@ addButton.addEventListener('click', () => {
       submitButtonCard.setAttribute('disabled', '');
       submitButtonCard.classList.add('form__save_disabled');
     }*/
-    cardFormValidator._toggleButtonState();
+    cardFormValidator.toggleButtonState();
 })   
 
 formEditProfile.addEventListener('submit', editFormSubmitHandler);
