@@ -109,10 +109,10 @@ const renderCard = (cardItem) => {
         const createAllCards = createCard(cardItem);
         renderInitialCards(createAllCards);
     });
-}
+}*/
 
 
-const createCard = (cardItem) =>{
+/*const createCard = (cardItem) =>{
     const newCard = elementTemplate.cloneNode(true);
     newCard.querySelector('.element__title').textContent = cardItem.name;
     newCard.querySelector('.element__photo').src = cardItem.link;
@@ -156,18 +156,21 @@ const createCard = (cardItem) =>{
     });
   }  */
   
-
-
-
-const renderCard = (cardItem) => {
-  const card = new Card(cardItem, '.template-element', handleCardClick);
-  const cardElement = card.generateCard();
-  elementsList.prepend(cardElement);
+function createCard(cardItem) {
+    const card = new Card(cardItem, '.template-element', handleCardClick);
+    const cardElement = card.generateCard();
+    return cardElement;
 }
-  
-initialCards.forEach((cardItem) => {
-  renderCard(cardItem)
-})
+
+const renderInitialCards = (cardItem) => {
+    elementsList.prepend(cardItem);
+}
+
+initialCards.forEach(function (cardItem) {
+    const createAllCards = createCard(cardItem);
+    renderInitialCards(createAllCards)
+});
+
 
 editButton.addEventListener('click', () => {
     openPopup(popupEditProfile);
@@ -177,20 +180,23 @@ editButton.addEventListener('click', () => {
 
 addButton.addEventListener('click', () => {
     openPopup(popupAddCard);
-    if((placeInput.validity.valueMissing) || (linkInput.validity.valueMissing)) {
+    /*if((placeInput.validity.valueMissing) || (linkInput.validity.valueMissing)) {
       submitButtonCard.setAttribute('disabled', '');
       submitButtonCard.classList.add('form__save_disabled');
-    }
+    }*/
+    cardFormValidator._toggleButtonState();
 })   
 
 formEditProfile.addEventListener('submit', editFormSubmitHandler);
 
 formAddCard.addEventListener('submit', function (evt) {
   evt.preventDefault();
-  renderCard({
+  const addNewCard ={
     name: placeInput.value,
     link: linkInput.value
-  })
+  }
+  const createNewCard = createCard(addNewCard);
+  renderInitialCards(createNewCard);
   closePopup(popupAddCard);
   formAddCard.reset(); 
 });
