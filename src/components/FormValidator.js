@@ -7,20 +7,17 @@ export default class FormValidator {
         this._submitButtonSelector = settings.submitButtonSelector;
         this._formSelector = settings.formSelector;
         this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
-       /* this._errorClass = settings.errorClass*/
     }
 
     _showInputError(inputElement, errorMessage) {
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.add(this._inputErrorClass);
         errorElement.textContent = errorMessage;
-        /*errorElement.classList.add(this._errorClass);*/
     };
 
     _hideInputError(inputElement) {
         const errorElement = this._formElement.querySelector(`#${inputElement.id}-error`);
         inputElement.classList.remove(this._inputErrorClass);
-        /*errorElement.classList.remove(this._errorClass);*/
         errorElement.textContent = '';
     };
 
@@ -63,7 +60,7 @@ export default class FormValidator {
         this._formElement.addEventListener('submit', (evt) => {
 			evt.preventDefault();
 		});
-
 		this._setEventListeners();
     }
+
 }

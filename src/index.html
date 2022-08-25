@@ -31,49 +31,7 @@
       </section>
 
       <section class="elements">
-        <!--<article class="element">
-          <button class="element__delete" type="button"></button>
-          <img src="images/kazanskiy.jpg" alt="" class="element__photo">
-          <div class="element__description">  
-            <h2 class="element__title">Казанский собор</h2> 
-            <button class="element__like" type="button"></button>
-          </div>  
-        </article>
-        <article class="element">
-          <img src="images/lahta.jpg" alt="" class="element__photo">
-          <div class="element__description">  
-            <h2 class="element__title">Лахта-центр</h2> 
-            <button class="element__like" type="button"></button>
-          </div>  
-        </article>
-        <article class="element">
-          <img src="images/most.jpg" alt="" class="element__photo">
-          <div class="element__description">
-            <h2 class="element__title">Разводной мост</h2>
-            <button class="element__like" type="button"></button>
-          </div>  
-        </article>
-        <article class="element">
-          <img src="images/petergof.jpg" alt="" class="element__photo">
-          <div class="element__description">  
-            <h2 class="element__title">Петергоф</h2> 
-            <button class="element__like" type="button"></button>
-          </div>  
-        </article>
-        <article class="element">
-          <img src="images/petropavlovskay.jpg" alt="" class="element__photo">
-          <div class="element__description">  
-            <h2 class="element__title">Петропавлоская крепость</h2> 
-            <button class="element__like" type="button"></button>
-          </div>  
-        </article>
-        <article class="element">
-          <img src="images/Spas-na-krovi.jpg" alt="" class="element__photo">
-          <div class="element__description">  
-            <h2 class="element__title">Спас-на-Крови</h2> 
-            <button class="element__like" type="button"></button>
-          </div>
-        </article>-->
+        <!-- добавление карточек -->
       </section>
     </main>
     
@@ -106,7 +64,7 @@
           <h2 class="form__title">Новое место</h2>
           <input class="form__input form__input_field_place" id="card-name" placeholder="Название" type="text" name="name" minlength="2" maxlength="30" required>
             <span class="form__input-error" id="card-name-error"></span>
-          <input class="form__input form__input_field_link" id="card-link" placeholder="Ссылка на картинку" type="url" name="activity" required>
+          <input class="form__input form__input_field_link" id="card-link" placeholder="Ссылка на картинку" type="url" name="link" required>
             <span class="form__input-error" id="card-link-error"></span>
           <button class="form__save" type="submit">Сохранить</button>
         </form>
@@ -135,9 +93,7 @@
     </article>
   </template> 
 
-<script type="module" src="scripts/index.js" ></script>  
-<script type="module" src="scripts/Cards.js"></script>
-<script type="module" src="scripts/FormValidator.js"></script>
+<script type="module" src="../src/pages/index.js"></script>  
 
 </body>  
 </html>
