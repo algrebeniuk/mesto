@@ -9,23 +9,23 @@
   
   <div class="page">
     <header class="header">
-      <img src="../src/images/Header-logo.svg" class="header__logo" alt="Логотип">
+      <img src="<%=require('./images/Header-logo.svg')%>" class="header__logo" alt="Логотип">
     </header>
     
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="../src/images/Profile-avatar.jpg" alt=""> 
+        <img class="profile__avatar" src="<%=require('./images/Profile-avatar.jpg')%>" alt=""> 
         <div class="profile__info">
           <div class="profile__info-conteiner">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button class="profile__edit-button" type="button">
-              <img class="profile__edit-button-pen" src="../src/images/pen.svg" alt="">
+              <img class="profile__edit-button-pen" src="<%=require('./images/pen.svg')%>" alt="">
             </button>
           </div>  
           <p class="profile__activity">Исследователь океана</p>
         </div>
         <button class="profile__add-button" type="button">
-          <img class="profile__add-button-plus" src="../src/images/plus.svg" alt="">
+          <img class="profile__add-button-plus" src="<%=require('./images/plus.svg')%>" alt="">
         </button>
       </section>
 
@@ -41,7 +41,7 @@
     <div class="popup popup_type_edit-profile"> <!--редактирование профиля-->
       <div class="popup__conteiner">
         <button class="popup__close popup__close_type_edit-profile" type="button">
-          <img class="popup__close-cross" src="../src/images/cross.svg" alt="">
+          <img class="popup__close-cross" src="<%=require('./images/cross.svg')%>" alt="">
         </button>
         <form class="form form_type_edit-profile" name="form" novalidate>
           <h2 class="form__title">Редактировать профиль</h2>
@@ -57,7 +57,7 @@
     <div class="popup popup_type_add-card"> <!--добавление фото-->
       <div class="popup__conteiner">
         <button class="popup__close popup__close_type_add-card" type="button">
-          <img class="popup__close-cross" src="../src/images/cross.svg" alt="">
+          <img class="popup__close-cross" src="<%=require('./images/cross.svg')%>" alt="">
         </button>
         <form class="form form_type_add-card" name="form" novalidate>
           <h2 class="form__title">Новое место</h2>
@@ -74,7 +74,7 @@
       <div class="popup__conteiner-photo">
         <img class="popup__photo">
         <button class="popup__close popup__close_type_photo" type="button">
-          <img class="popup__close-cross" src="../src/images/cross.svg" alt="">
+          <img class="popup__close-cross" src="<%=require('./images/cross.svg')%>" alt="">
         </button>
         <h2 class="popup__title"></h2>
       </div>
