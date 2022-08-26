@@ -24,16 +24,29 @@ export default class Card {
     }
     
     _setEventListeners() {
-      this._element.querySelector('.element__like').addEventListener('click', (evt) => {
+      /*this._element.querySelector('.element__like').addEventListener('click', (evt) => {
         evt.target.classList.toggle('element__like_active');
       });
 
       this._element.querySelector('.element__delete').addEventListener('click', (evt) => {
         evt.target.closest('.element').remove();
-      });
-
+      });*/
+      this._like();
+      this._deleteCard();
       this._elementPhoto.addEventListener('click', () => {
-        this._handleCardClick(this._name, this._link)
+        this._handleCardClick(this._name, this._link);  
+      });
+    }
+
+    _like() {
+      this._element.querySelector('.element__like').addEventListener('click', (evt) => {
+        evt.target.classList.toggle('element__like_active');
+      });
+    }
+    _deleteCard() {
+      this._element.querySelector('.element__delete').addEventListener('click', (evt) => {
+        this._element.remove();
+        this._element = null;
       });
     }
 }

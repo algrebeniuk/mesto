@@ -1,5 +1,5 @@
 import './index.css';
-import Card from "../components/Cards.js"
+import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
@@ -14,7 +14,9 @@ import {
   editButton,
   addButton,
   validationConfig,
-  initialCards
+  initialCards,
+  popupPhoto,
+  popupTitle
 } from '../utils/constants.js';
 
 const cardFormValidator = new FormValidator(validationConfig, popupAddCard);
@@ -24,7 +26,7 @@ cardFormValidator.enableValidation();
 profileFormValidator.enableValidation();
 
 
-const createCard = ( data) => {
+const createCard = (data) => {
     const card = new Card({
       data: data,
       handleCardClick: (name, link) => {
@@ -50,7 +52,12 @@ const elementsList = new Section(
 
 elementsList.renderItems();
 
-const popupWithImage = new PopupWithImage(popupOpenPhoto);
+const popupWithImage = new PopupWithImage
+  (
+    popupOpenPhoto, 
+    popupPhoto, 
+    popupTitle,
+  );
 popupWithImage.setEventListeners();
 
 const popupWithFormEditProfile = new PopupWithForm({

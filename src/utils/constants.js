@@ -8,6 +8,9 @@ export const jobInput = document.querySelector('.form__input_field_activity');
 export const editButton = document.querySelector('.profile__edit-button');
 export const addButton = document.querySelector('.profile__add-button');
 
+export const popupPhoto = document.querySelector('.popup__photo');
+export const popupTitle = document.querySelector('.popup__title');
+
 export const validationConfig = {
   formSelector: '.form',
   inputSelector: '.form__input',
