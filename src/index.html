@@ -43,7 +43,7 @@
         <button class="popup__close popup__close_type_edit-profile" type="button">
           <img class="popup__close-cross" src="<%=require('./images/cross.svg')%>" alt="">
         </button>
-        <form class="form form_type_edit-profile" name="form" novalidate>
+        <form class="form form_type_edit-profile" name="profile" novalidate>
           <h2 class="form__title">Редактировать профиль</h2>
           <input class="form__input form__input_field_name" id="profile-name" placeholder="Введите Ваше имя" type="text" name="name" minlength="2" maxlength="40" required>
             <span class="form__input-error" id="profile-name-error"></span>
@@ -59,7 +59,7 @@
         <button class="popup__close popup__close_type_add-card" type="button">
           <img class="popup__close-cross" src="<%=require('./images/cross.svg')%>" alt="">
         </button>
-        <form class="form form_type_add-card" name="form" novalidate>
+        <form class="form form_type_add-card" name="card" novalidate>
           <h2 class="form__title">Новое место</h2>
           <input class="form__input form__input_field_place" id="card-name" placeholder="Название" type="text" name="name" minlength="2" maxlength="30" required>
             <span class="form__input-error" id="card-name-error"></span>
