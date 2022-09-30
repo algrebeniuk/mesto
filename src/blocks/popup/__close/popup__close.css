@@ -6,7 +6,7 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    z-index: 20;
+    z-index: 200;
 }
 
 @media screen and (max-width: 600px) {

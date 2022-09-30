@@ -14,7 +14,9 @@
     
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/Profile-avatar.jpg')%>" alt=""> 
+        <button class="profile__avatar-edit">
+          <img class="profile__avatar" src="<%=require('./images/Profile-avatar.jpg')%>" alt=""> 
+        </button>
         <div class="profile__info">
           <div class="profile__info-conteiner">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -47,7 +49,7 @@
           <h2 class="form__title">Редактировать профиль</h2>
           <input class="form__input form__input_field_name" id="profile-name" placeholder="Введите Ваше имя" type="text" name="name" minlength="2" maxlength="40" required>
             <span class="form__input-error" id="profile-name-error"></span>
-          <input class="form__input form__input_field_activity" id="profile-activity" placeholder="Ведите Вашу сферу деятельности" type="text" name="activity" minlength="2" maxlength="200" required>
+          <input class="form__input form__input_field_activity" id="profile-activity" placeholder="Ведите Вашу сферу деятельности" type="text" name="about" minlength="2" maxlength="200" required>
             <span class="form__input-error" id="profile-activity-error"></span>
           <button class="form__save" type="submit">Сохранить</button>
         </form>
@@ -59,7 +61,7 @@
         <button class="popup__close popup__close_type_add-card" type="button">
           <img class="popup__close-cross" src="<%=require('./images/cross.svg')%>" alt="">
         </button>
-        <form class="form form_type_add-card" name="card" novalidate>
+        <form class="form form_type_add-card" name="add-card" novalidate>
           <h2 class="form__title">Новое место</h2>
           <input class="form__input form__input_field_place" id="card-name" placeholder="Название" type="text" name="name" minlength="2" maxlength="30" required>
             <span class="form__input-error" id="card-name-error"></span>
@@ -70,7 +72,7 @@
       </div>
     </div> 
 
-    <div class="popup popup_type_photo">
+    <div class="popup popup_type_photo"> <!-- открытие фото-->
       <div class="popup__conteiner-photo">
         <img class="popup__photo">
         <button class="popup__close popup__close_type_photo" type="button">
@@ -81,13 +83,42 @@
     </div>
   </div>
 
+  <div class="popup popup_type_delete-card"> 
+    <div class="popup__conteiner">
+      <button class="popup__close popup__close_type_delete-card" type="button">
+        <img class="popup__close-cross" src="<%=require('./images/cross.svg')%>" alt="">
+      </button>
+      <form class="form form_type_delete-card" name="delete-card" novalidate>
+        <h2 class="form__title">Вы уверены?</h2>
+        <button class="form__save" type="submit">Да</button>
+      </form>
+    </div>
+  </div> 
+ 
+  <div class="popup popup_type_edit-avatar"> 
+    <div class="popup__conteiner">
+      <button class="popup__close popup__close_type_edit-avatar" type="button">
+        <img class="popup__close-cross" src="<%=require('./images/cross.svg')%>" alt="">
+      </button>
+      <form class="form form_type_edit-avatar" name="edit-avatar" novalidate>
+        <h2 class="form__title">Обновить аватар</h2>
+        <input class="form__input form__input_field_avatar" id="avatar-link" placeholder="Ссылка на картинку" type="url" name="avatar" required>
+        <span class="form__input-error" id="avatar-link-error"></span>
+        <button class="form__save" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
+
   <template class="template-element" id="template-element">
     <article class="element">
       <button class="element__delete" type="button"></button>
       <img src="./images/kazanskiy.jpg" alt="" class="element__photo">
       <div class="element__description">  
         <h2 class="element__title"></h2>
-        <button class="element__like" type="button"></button>
+        <div class="element__like-conteiner">
+          <button class="element__like" type="button"></button>
+          <span class="element__like-count">0</span>
+        </div>  
       </div>  
     </article>
   </template> 
